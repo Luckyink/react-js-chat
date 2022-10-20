@@ -7,7 +7,7 @@ const ChatHistory = ({chatHistory}) => {
     <div class="chat-history">
       <ul class="m-b-0">
         {
-          chatHistory && // Check if todoItems exists
+          chatHistory && // Check if exists
           Array.isArray(chatHistory) && // Check if it's an array
           chatHistory.length > 0 && // The array should not be empty
           chatHistory.map(({ from, message, created_at, username }) => (

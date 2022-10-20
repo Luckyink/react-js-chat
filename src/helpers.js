@@ -22,8 +22,6 @@ export const isLogin = () =>  {
 
   let tabId = document.getElementById('tab-id').getAttribute('content');
 
-  console.log(tabId)
-
   if(typeof(tabId) === undefined)
   return false;
 

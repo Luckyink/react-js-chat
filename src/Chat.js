@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 
 import Login from './Login';
+import ChatArea from './components/ChatArea';
 
 // HELPER
 import { getFromLocalStorage, saveToLocalStorage, isLogin, getTabLogin } from './helpers';
@@ -49,11 +50,30 @@ const Chat = () => {
 
   }, [peopleList]);
 
+  const addChatHandler = useCallback(message => {
+  
+    const newChatHistory = [
+      ...chatHistory,
+      {
+        from: document.getElementById('tab-id').getAttribute('content'),
+        username: document.getElementById('userid').getAttribute('content'),
+        message,
+        created_at: Date.now()
+      }
+    ]
+    
+    // Update  state
+    setChatHistory(newChatHistory)
+
+    // Save to localStorage
+    saveToLocalStorage('chat-history', newChatHistory)
+  }, [chatHistory])
+
   if (isLoginedIn)
   {
     return (
         <div class="card chat-app">
-          
+          <ChatArea chatHistory= {chatHistory} onPostMessage = {addChatHandler} />
         </div>
       );
   }

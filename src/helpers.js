@@ -35,3 +35,22 @@ export const isLogin = () =>  {
   return true;
 }
 
+export const getTabLogin = () =>  {
+
+  const tabId = localStorage.getItem("tab-id");
+  //
+  if(tabId === null)
+  {
+    localStorage.setItem("tab-id", 2)
+
+    return 1;
+  }
+
+  localStorage.setItem("tab-id", parseInt(tabId)  + 1)
+
+  return tabId;
+}
+
+// login user
+export const Login = username => localStorage.setItem("login-id", username);
+

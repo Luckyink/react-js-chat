@@ -9,7 +9,7 @@ const PeopleList = ({peopleList}) => {
       <p class="text-center">PEOPLE JOINED</p>
       <ul class="list-unstyled chat-list mt-2 mb-0">
         {
-          peopleList && // Check if todoItems exists
+          peopleList && // Check if  exists
           Array.isArray(peopleList) && // Check if it's an array
           peopleList.length > 0 && // The array should not be empty
           peopleList.map(({ id, username }) => (

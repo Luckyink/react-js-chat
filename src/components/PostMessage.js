@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -29,8 +29,6 @@ const PostMessage = ({ onPostMessage }) => {
       resetForm();
     },
   })
-
-
 
   return (
     <form onSubmit={formik.handleSubmit}>

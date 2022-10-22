@@ -21,7 +21,7 @@ const Chat = () => {
   return !letChat ? (
     <Login loginHandler={login1Handler} />
   ) : (
-    <></>
+    <PeopleList peopleList={people} />
   );
   
 

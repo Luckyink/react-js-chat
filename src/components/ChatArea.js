@@ -3,11 +3,12 @@ import ChatHistory from './ChatHistory';
 import PostMessage from './PostMessage';
 
 // COMPONENT
-const ChatArea = ({chatHistory,onPostMessage}) => {
+const ChatArea = ({person, chat, onPostMessage }) => {
+
   return (
       <div class="chat">
-        <ChatHistory chatHistory={chatHistory}/>
-        <PostMessage onPostMessage = {onPostMessage} />
+        <ChatHistory chatHistory={chat} person={person}/>
+        <PostMessage onPostMessage = {onPostMessage } />
       </div>
   )
 };

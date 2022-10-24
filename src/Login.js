@@ -1,11 +1,8 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { getFromLocalStorage} from './helpers';
 
 const Login = ({loginHandler}) => {
-
-  const [peopleList, setTodoItems] = useState(getFromLocalStorage('usernames') || [])
    
   // Initialize a form instance with useFormik hook
   const formik = useFormik({
@@ -45,10 +42,10 @@ const Login = ({loginHandler}) => {
   return (
     <>
     <form onSubmit={formik.handleSubmit}>
-    <div class="login-container animated fadeInDown bootstrap snippets bootdeys">
-        <div class="loginbox bg-white">
-            <div class="loginbox-title">JOIN CHAT</div>
-            <div class="loginbox-textbox">
+    <div className="login-container animated fadeInDown bootstrap snippets bootdeys">
+        <div className="loginbox bg-white">
+            <div className="loginbox-title">JOIN CHAT</div>
+            <div className="loginbox-textbox">
             <input
               className="form-control"
               id="username"
@@ -61,14 +58,14 @@ const Login = ({loginHandler}) => {
             />
             </div>
             
-            <div class="loginbox-submit">
-                <input type="submit" class="btn btn-primary btn-block" value="Join" />
+            {error && <div className="loginbox-textbox">{error}</div>}
+            
+            <div className="loginbox-submit">
+                <input type="submit" className="btn btn-primary btn-block" value="Join" />
             </div>
         </div>
     </div>
     </form>
-       
-    {/* {error && <span>{error}</span>} */}
     </>
   )
 };

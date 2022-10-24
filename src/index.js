@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Chat from './Chat';
-
+import ChatProvider from './contexts/chatContext';
+import PeopleProvider from './contexts/peopleContext';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
@@ -10,8 +11,12 @@ ReactDOM.render(
           <div class="container">
             <div class="row clearfix">
                 <div class="col-lg-12">
-                  <Chat />
-                </div>
+                  <ChatProvider>
+                    <PeopleProvider>
+                      <Chat />
+                    </PeopleProvider>
+                  </ChatProvider>
+              </div>
             </div>
           </div>
         </React.StrictMode>,

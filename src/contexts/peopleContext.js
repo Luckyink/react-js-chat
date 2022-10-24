@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 
 export function createCtx() {
-  const ctx = createContext(undefined);
+  const ctx = createContext('people_list');
   function useCtx() {
     const c = useContext(ctx);
     if (!c) throw new Error('useCtx must be inside a Provider with a value');

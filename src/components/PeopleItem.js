@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React from 'react';
 
 const PeopleItem = ({ username, id}) => {
   return (

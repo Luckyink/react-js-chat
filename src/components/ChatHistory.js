@@ -4,7 +4,7 @@ import Message from './Message';
 const ChatHistory = ({person, chatHistory}) => {
 
   return (
-    <div class="chat-history">
+    <div class="chat-history overflow-auto">
       <ul class="m-b-0">
         {
           chatHistory?.map(({ from, message, created_at, username }, index) => (

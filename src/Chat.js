@@ -40,7 +40,7 @@ const Chat = () => {
   return !letChat ? (
     <Login loginHandler={login1Handler} />
   ) : (
-    <div class="card chat-app">
+    <div class="card chat-app h-100">
         <ChatArea person={person} chat={chat} onPostMessage={addChatHandler} />
         <PeopleList peopleList={people} /> 
     </div>

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-const Login = ({loginHandler}) => {
-   
+const Login = ({loginHandler, peopleList}) => {
+  const [status, setStatus] = useState(null);
   // Initialize a form instance with useFormik hook
   const formik = useFormik({
     // Disable validation onChange and onBlur for keeping validation errors less annoying
@@ -21,18 +21,25 @@ const Login = ({loginHandler}) => {
           .min(3, 'Username text is too short.')
           .max(20, 'Username text is too long.')
           .required('Username text is required.')
+          
         }
       ),
     onSubmit: (values, { resetForm }) => {
-      
-      loginHandler(values.username);
+      setStatus(null);
 
-      // Reset the form after submitting successfully
+      if(!peopleList.includes(values.username))
+      {
+        loginHandler(values.username);
+      }
+      else
+      {
+        setStatus("Username Exists")
+      }
+
       resetForm();
     },
   })
 
-  // Get an error from formik.errors to show up because I don't like showing all of them at once
   const errorKeys = Object.keys(formik.errors);
 
   const aFormikError = errorKeys.length > 0 ? formik.errors[errorKeys[0]] : null;
@@ -58,8 +65,8 @@ const Login = ({loginHandler}) => {
             />
             </div>
             
-            {error && <div className="loginbox-textbox">{error}</div>}
-            
+            {error && <div className="loginbox-textbox text-danger">{error}</div>}
+            {status && <div className="loginbox-textbox text-danger">{status}</div>}
             <div className="loginbox-submit">
                 <input type="submit" className="btn btn-primary btn-block" value="Join" />
             </div>

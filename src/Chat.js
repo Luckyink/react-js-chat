@@ -38,9 +38,9 @@ const Chat = () => {
   }
 
   return !letChat ? (
-    <Login loginHandler={login1Handler} />
+    <Login loginHandler={login1Handler} peopleList={people}/>
   ) : (
-    <div class="card chat-app h-100">
+    <div className="card chat-app h-100">
         <ChatArea person={person} chat={chat} onPostMessage={addChatHandler} />
         <PeopleList peopleList={people} /> 
     </div>

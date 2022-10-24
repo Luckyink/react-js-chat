@@ -8,9 +8,9 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
         
         <React.StrictMode>
-          <div class="container">
-            <div class="row clearfix">
-                <div class="col-lg-12">
+          <div className="container">
+            <div className="row clearfix">
+                <div className="col-lg-12">
                   <ChatProvider>
                     <PeopleProvider>
                       <Chat />

@@ -5,7 +5,7 @@ import Message from './Message';
 const ChatHistory = ({person, chatHistory}) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [scrollUpEnabled, setScrollUp] = useState(true);
-  const dataLimit = 3;
+  const dataLimit = 25;
   const listInnerRef = useRef();
 
   const onScroll = () => {

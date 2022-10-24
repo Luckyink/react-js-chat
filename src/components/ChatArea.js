@@ -6,7 +6,7 @@ import PostMessage from './PostMessage';
 const ChatArea = ({person, chat, onPostMessage }) => {
 
   return (
-      <div class="chat">
+      <div className="chat">
         <ChatHistory chatHistory={chat} person={person}/>
         <PostMessage onPostMessage = {onPostMessage } />
       </div>
